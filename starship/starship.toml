@@ -1,0 +1,171 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+palette="custom"
+
+format = """
+$os\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$cpp\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$fill\
+$time\
+$line_break$character"""
+
+[fill]
+style='color_text'
+symbol='-'
+
+[palettes.custom]
+color_text='#FAFAFA'
+color_purple='#8332FB'
+color_red='#dc143c'
+color_yellow='#D7AF00'
+color_green='#00c700'
+color_orange = '#D65D0E'
+color_teal='#00AFFF'
+color_blue='#0087AF'
+color_java='#ED8B00'
+color_kotlin="#B125EA"
+color_rust="#E5712D"
+color_c="#659AD2"
+color_node="#339933"
+color_python="#306998"
+color_php="#AEB2D5"
+color_go="#29BEB0"
+color_haskell="#8F4E8B"
+
+[os]
+disabled = false
+style = "fg:color_text"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "fg:color_text"
+style_root = "bold fg:color_red"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color_teal"
+read_only_style='fg:color_red'
+before_repo_root_style='fg:color_blue'
+read_only="\uf023"
+home_symbol="\uf46d ~"
+format="@ [$path]($style)[$read_only]($read_only_style) "
+repo_root_format='@ [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+# This doesn't seem to work...
+fish_style_pwd_dir_length=1
+truncate_to_repo=true
+
+[directory.substitutions]
+"Documents" = "󰈙 Documents"
+"Downloads" = " Downloads"
+"Music" = "󰝚 Music"
+"Pictures" = " Pictures"
+"Developer" = "󰲋 Developer"
+
+[git_branch]
+symbol = " "
+format = '[[ $symbol $branch ](fg:color_green)]($style)'
+
+# TODO: Display items count per status (e.g. 2 added, 1 staged, etc...)
+[git_status]
+format = '[[($all_status$ahead_behind )](fg:color_yellow)]($style)'
+
+[nodejs]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_node)]($style)'
+
+[c]
+symbol = " "
+format = '[[ $symbol( $version) ](fg:color_c)]($style)'
+
+[cpp]
+symbol = " "
+format = '[[ $symbol( $version) ](fg:color_c)]($style)'
+
+[rust]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_rust)]($style)'
+
+[golang]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_go)]($style)'
+
+[php]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_php)]($style)'
+
+[java]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_java)]($style)'
+
+[kotlin]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_kotlin)]($style)'
+
+[haskell]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_haskell)]($style)'
+
+[python]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_python)]($style)'
+
+[docker_context]
+symbol = ""
+format = '[[ $symbol( $context) ](fg:#83a598)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:color_blue"
+format = '[  $time ]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color_green)'
+error_symbol = '[❯](bold fg:color_red)'
+vimcmd_symbol = '[❮](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[r](bold fg:color_green)'
+vimcmd_replace_symbol = '[R](bold fg:color_green)'
+vimcmd_visual_symbol = '[V](bold fg:color_green)'
