@@ -15,6 +15,7 @@ $cpp\
 $rust\
 $golang\
 $nodejs\
+$bun\
 $php\
 $java\
 $kotlin\
@@ -42,6 +43,7 @@ color_kotlin="#B125EA"
 color_rust="#E5712D"
 color_c="#659AD2"
 color_node="#339933"
+color_bun="#FBF0DF"
 color_python="#306998"
 color_php="#AEB2D5"
 color_go="#29BEB0"
@@ -89,8 +91,8 @@ read_only="\uf023"
 home_symbol="\uf46d ~"
 format="@ [$path]($style)[$read_only]($read_only_style) "
 repo_root_format='@ [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
-# This doesn't seem to work...
-fish_style_pwd_dir_length=1
+truncation_length=3
+truncation_symbol=".../"
 truncate_to_repo=true
 
 [directory.substitutions]
@@ -104,13 +106,35 @@ truncate_to_repo=true
 symbol = " "
 format = '[[ $symbol $branch ](fg:color_green)]($style)'
 
-# TODO: Display items count per status (e.g. 2 added, 1 staged, etc...)
 [git_status]
-format = '[[($all_status$ahead_behind )](fg:color_yellow)]($style)'
+up_to_date = "[✓ ](#9ECE6A)"
+conflicted = "[X$count ](#F7768E)"
+ahead = "[⇡$count ](#9ECE6A)"
+behind = "[⇣$count ](#E0AF68)"
+untracked = "[U$count ](#7AA2F7)"
+deleted = "[D$count ](#F7768E)"
+renamed = "[R${count} ](#BB9AF7)"
+modified = "[M$count ](#E0AF68)"
+staged = "[++$count ](#9ECE6A)"
+
+format = """
+$up_to_date\
+$conflicted\
+$ahead_behind\
+$untracked\
+$deleted\
+$renamed\
+$modified\
+$staged\
+"""
 
 [nodejs]
 symbol = ""
 format = '[[ $symbol( $version) ](fg:color_node)]($style)'
+
+[bun]
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_bun)]($style)'
 
 [c]
 symbol = " "
