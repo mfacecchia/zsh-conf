@@ -41,3 +41,12 @@ alias precommit_setup="pre-commit install
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export GITLEAKS_CONFIG="$HOME/.config/gitleaks/.gitleaks.toml"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias ec="editorconfig-checker"
+
+# Get public IPv4 address utility
+alias pub_ipv4="curl https://api.ipify.org"
+
