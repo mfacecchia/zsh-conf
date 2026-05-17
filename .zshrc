@@ -24,7 +24,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Utility scripts for all uses
 alias gen_secret="node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
-alias db_connect="/Applications/XAMPP/xamppfiles/bin/mysql -u root"
 alias pgdb_start="postgres -D /usr/local/opt/postgresql@17";
 
 # Creates a directory and sets it as CWD
