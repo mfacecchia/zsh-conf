@@ -19,7 +19,6 @@ brew install \
     apr \
     git \
     libssh2 \
-    mongosh \
     ruby \
     apr-util \
     gitleaks \
